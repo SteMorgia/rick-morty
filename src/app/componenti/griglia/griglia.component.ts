@@ -23,14 +23,21 @@ export class GrigliaComponent implements OnInit {
 
   }
   getNextPage() {
-    //console.log(this.apiService.getPage(this.counter++))
-    this.counter++
-    this.getCharacterList()
+    if(this.counter == 42) {
+      return
+    } else {
+      this.counter++
+      this.getCharacterList()
+    }
   }
 
   getPrevPage() {
-    this.counter--
-    this.getCharacterList()
+    if(this.counter == 1) {
+      return
+    } else {
+      this.counter--
+      this.getCharacterList()
+    }
   }
 
   getCharacterList() {

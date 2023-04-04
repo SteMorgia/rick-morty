@@ -1,10 +1,13 @@
-<div class="formContainer">
-  <input #search type="text" (keyup)="searchCharacter(search.value)">
+<div class="mainContainer">
+  <div class="formContainer">
+    <input #search placeholder="Cerca Personaggio" type="text" (keyup)="searchCharacter(search.value)">
+  </div>
+  <div class="container">
+    <app-card *ngFor="let character of characters" [dataCharacter]="character"></app-card>
+  </div>
+  <div class="buttonContainer">
+    <button mat-raised-button color="primary"(click)="getPrevPage()">Indietro</button>
+    <button mat-raised-button color="primary" (click)="getNextPage()">Avanti</button>
+  </div>
 </div>
-<div class="container">
-  <app-card *ngFor="let character of characters" [dataCharacter]="character"></app-card>
-</div>
-<div class="buttonContainer">
-  <button mat-raised-button color="primary"(click)="getPrevPage()">Indietro</button>
-  <button mat-raised-button color="primary" (click)="getNextPage()">Avanti</button>
-</div>
+
