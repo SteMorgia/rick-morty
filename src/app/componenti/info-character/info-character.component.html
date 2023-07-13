@@ -4,11 +4,27 @@
   <div class="imgContainer">
     <img src="{{(singleCharacter | async)?.image}}" alt="">
   </div>
-  <div class="infoCharacter">
+  <!--<div class="infoCharacter">
     <span>NOME: {{(singleCharacter | async)?.name}}</span>
     <span>LOCATION: {{(singleCharacter | async)?.location.name}}</span>
     <span>PROVENIENZA: {{(singleCharacter | async)?.origin.name}}</span>
     <span>GENERE: {{(singleCharacter | async)?.gender}}</span>
-  </div>
+  </div> -->
 </div>
+
+<form [formGroup]="myForm">
+  <label for="name">Nome:</label>
+  <input type="text" id="nome" formControlName="nome">
+
+  <label for="age">Location:</label>
+  <input type="text" id="location" formControlName="location">
+
+  <label for="age">Provenienza:</label>
+  <input type="text" id="provenienza" formControlName="provenienza">
+
+  <label for="age">Genere:</label>
+  <input type="text" id="genere" formControlName="genere">
+
+  <button type="submit"(click)="saveCharacter()">Submit</button>
+</form>
 

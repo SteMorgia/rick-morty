@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
+//import { CharacterService } from 'src/app/service/character.service';
 
 @Component({
   selector: 'app-griglia',
@@ -14,7 +15,7 @@ export class GrigliaComponent implements OnInit {
   counter: number = 1
 
 
-  constructor(private apiService:ApiService) {
+  constructor(private apiService: ApiService) {
     this.searchCharacter(this.nameCharacter)
   }
 
@@ -41,7 +42,7 @@ export class GrigliaComponent implements OnInit {
   }
 
   getCharacterList() {
-    this.data = this.apiService.getPage(this.counter).subscribe((data => {
+    this.data = this.apiService.getAll().subscribe((data => {
       this.data = data
       this.characters = this.data.results
       console.log(this.data)

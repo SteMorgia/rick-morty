@@ -1,0 +1,18 @@
+{
+  "characters": [
+    {
+      "nome": "Alan ",
+      "location": "Worldender's lair",
+      "provenienza": "unknown",
+      "genere": "Male",
+      "id": 1
+    },
+    {
+      "nome": "robertino",
+      "location": "Earth (Replacement Dimension)",
+      "provenienza": "Earth (C-137)",
+      "genere": "Male",
+      "id": 2
+    }
+  ]
+}

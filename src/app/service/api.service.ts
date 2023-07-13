@@ -9,10 +9,16 @@ export class ApiService {
 
   url: string = 'https://rickandmortyapi.com/api/character/'
 
+  apiUrl: string = '/characters'
+
   constructor(private http: HttpClient) { }
 
   getAll():Observable <any> {
     return this.http.get(this.url)
+  }
+
+  saveCharacter(character: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}`, character);
   }
 
   getPage(counter: number): Observable <any> {
