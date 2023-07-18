@@ -12,19 +12,25 @@
   </div> -->
 </div>
 
-<form [formGroup]="myForm">
-  <label for="name">Nome:</label>
+<form [formGroup]="myForm" (ngSubmit)="saveCharacter()">
+  <label for="nome">Name:</label>
   <input type="text" id="nome" formControlName="nome">
 
-  <label for="age">Location:</label>
+  <label for="status">Status:</label>
+  <!--<input type="text" id="status" formControlName="status">-->
+  <select name="status" id="status" formControlName="status">
+    <option value="Dead">Dead</option>
+    <option value="Alive">Alive</option>
+    <option value="Unknown">Unknown</option>
+  </select>
+
+
+  <label for="status">Location:</label>
   <input type="text" id="location" formControlName="location">
 
-  <label for="age">Provenienza:</label>
-  <input type="text" id="provenienza" formControlName="provenienza">
-
-  <label for="age">Genere:</label>
+  <label for="gender">Gender:</label>
   <input type="text" id="genere" formControlName="genere">
 
-  <button type="submit"(click)="saveCharacter()">Submit</button>
+  <button type="submit">Salva</button>
 </form>
 

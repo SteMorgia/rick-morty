@@ -21,6 +21,7 @@ export class InfoCharacterComponent implements OnInit {
       location: new FormControl(),
       provenienza: new FormControl(),
       genere: new FormControl(),
+      status: new FormControl(),
     });
 
     this.singleCharacter?.subscribe(character => {
@@ -29,7 +30,8 @@ export class InfoCharacterComponent implements OnInit {
           nome: character.name,
           location: character.location.name,
           provenienza: character.origin.name,
-          genere: character.gender
+          genere: character.gender,
+          status: character.status
         })
       }
     })
@@ -46,9 +48,10 @@ export class InfoCharacterComponent implements OnInit {
 
   saveCharacter(): void {
     const characterData = this.myForm.value;
-    this.apiService.saveCharacter(characterData).subscribe(response => {
-      console.log('Dati salvati:', response);
-      alert('Dati salvati con successo!');
-    });
+      this.apiService.saveCharacter(characterData).subscribe(response => {
+        console.log('Dati salvati:', response);
+        alert('Dati salvati con successo!');
+      });
+    }
   }
-}
+

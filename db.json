@@ -13,6 +13,82 @@
       "provenienza": "Earth (C-137)",
       "genere": "Male",
       "id": 2
+    },
+    {
+      "nome": "Beth",
+      "location": "Earth (Replacement Dimension)",
+      "provenienza": "Earth (Replacement Dimension)",
+      "genere": "Female",
+      "id": 3
+    },
+    {
+      "nome": "Beth",
+      "location": "Earth (Replacement Dimension)",
+      "provenienza": "Earth (Replacement Dimension)",
+      "genere": "Female",
+      "id": 4
+    },
+    {
+      "nome": "ciaoooooooo",
+      "location": "Earth (Replacement Dimension)",
+      "provenienza": "Earth (Replacement Dimension)",
+      "genere": "Female",
+      "id": 5
+    },
+    {
+      "nome": "Summer ",
+      "location": "Earth (Replacement Dimension)",
+      "provenienza": "Earth (Replacement Dimension)",
+      "genere": "Female",
+      "id": 6
+    },
+    {
+      "nome": "Beth Smith fasdfasdfasdfasd",
+      "location": "Earth (Replacement Dimension)",
+      "provenienza": "Earth (Replacement Dimension)",
+      "genere": "Female",
+      "status": "Alive",
+      "id": 7
+    },
+    {
+      "nome": "Summer Smith",
+      "location": "Earth",
+      "provenienza": "Earth (Replacement Dimension)",
+      "genere": "Female",
+      "status": "Alive",
+      "id": 8
+    },
+    {
+      "nome": "Summer",
+      "location": "Earth",
+      "provenienza": "Earth (Replacement Dimension)",
+      "genere": "Female",
+      "status": "Alive",
+      "id": 9
+    },
+    {
+      "nome": "Summer Smith",
+      "location": "Earth (Replacement Dimension)",
+      "provenienza": "Earth (Replacement Dimension)",
+      "genere": "Female",
+      "status": "Dead",
+      "id": 10
+    },
+    {
+      "nome": "Summer Smith",
+      "location": "Earth (Replacement Dimension)",
+      "provenienza": "Earth (Replacement Dimension)",
+      "genere": "Female",
+      "status": "Unknown",
+      "id": 11
+    },
+    {
+      "nome": "Summer Smith",
+      "location": "Earth (Replacement Dimension)",
+      "provenienza": "Earth (Replacement Dimension)",
+      "genere": "Female",
+      "status": "Dead",
+      "id": 12
     }
   ]
 }
