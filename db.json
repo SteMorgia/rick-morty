@@ -89,6 +89,14 @@
       "genere": "Female",
       "status": "Dead",
       "id": 12
+    },
+    {
+      "nome": "Amish Cyborg edited",
+      "location": "Earth (Replacement Dimension) edited",
+      "provenienza": "unknown",
+      "genere": "Female",
+      "status": "Unknown",
+      "id": 13
     }
   ]
 }

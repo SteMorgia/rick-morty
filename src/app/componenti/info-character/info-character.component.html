@@ -1,36 +1,31 @@
 <!--<p>profilo di {{(singleCharacter | async)?.name}}</p>-->
-
-<div class="container">
-  <div class="imgContainer">
-    <img src="{{(singleCharacter | async)?.image}}" alt="">
+<div *ngIf="(getCharacterAndInitializeForm() | async) as character">
+  <div class="container">
+    <div class="imgContainer">
+      <img src="character.image" alt="">
+    </div>
   </div>
-  <!--<div class="infoCharacter">
-    <span>NOME: {{(singleCharacter | async)?.name}}</span>
-    <span>LOCATION: {{(singleCharacter | async)?.location.name}}</span>
-    <span>PROVENIENZA: {{(singleCharacter | async)?.origin.name}}</span>
-    <span>GENERE: {{(singleCharacter | async)?.gender}}</span>
-  </div> -->
+
+  <form [formGroup]="myForm" (ngSubmit)="saveCharacter()">
+    <label for="nome">Name:</label>
+    <input type="text" id="nome" formControlName="nome">
+
+    <label for="status">Status:</label>
+    <select name="status" id="status" formControlName="status">
+      <option value="Dead">Dead</option>
+      <option value="Alive">Alive</option>
+      <option value="Unknown">Unknown</option>
+    </select>
+
+
+    <label for="status">Location:</label>
+    <input type="text" id="location" formControlName="location">
+
+    <label for="gender">Gender:</label>
+    <input type="text" id="genere" formControlName="genere">
+
+    <button type="submit">Salva</button>
+  </form>
 </div>
 
-<form [formGroup]="myForm" (ngSubmit)="saveCharacter()">
-  <label for="nome">Name:</label>
-  <input type="text" id="nome" formControlName="nome">
-
-  <label for="status">Status:</label>
-  <!--<input type="text" id="status" formControlName="status">-->
-  <select name="status" id="status" formControlName="status">
-    <option value="Dead">Dead</option>
-    <option value="Alive">Alive</option>
-    <option value="Unknown">Unknown</option>
-  </select>
-
-
-  <label for="status">Location:</label>
-  <input type="text" id="location" formControlName="location">
-
-  <label for="gender">Gender:</label>
-  <input type="text" id="genere" formControlName="genere">
-
-  <button type="submit">Salva</button>
-</form>
 

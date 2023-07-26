@@ -1,57 +1,49 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, switchMap, tap } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Character } from 'src/app/core/types';
 @Component({
   selector: 'app-info-character',
   templateUrl: './info-character.component.html',
   styleUrls: ['./info-character.component.css']
 })
-export class InfoCharacterComponent implements OnInit {
+export class InfoCharacterComponent{
   id: string | null = ''
-  singleCharacter: Observable<any> | undefined;
+  //singleCharacter?: Observable<Character>;
   myForm: FormGroup = new FormGroup({});
 
   constructor (private route:ActivatedRoute, private apiService: ApiService) { }
-  ngOnInit(): void {
-    this.getCharacter()
-    this.myForm = new FormGroup({
-      nome: new FormControl(),
-      location: new FormControl(),
-      provenienza: new FormControl(),
-      genere: new FormControl(),
-      status: new FormControl(),
-    });
 
-    this.singleCharacter?.subscribe(character => {
-      if (character) {
-        this.myForm.patchValue({
-          nome: character.name,
-          location: character.location.name,
-          provenienza: character.origin.name,
-          genere: character.gender,
-          status: character.status
-        })
-      }
-    })
+  getCharacterAndInitializeForm():Observable<Character> {
+    return this.getCharacter().pipe(
+      tap(this.initializeForm)
+    )
   }
 
-  getCharacter(): void {
-    this.route.params.subscribe((res) => {
-      this.id = res['id'];
-      this.singleCharacter = this.apiService.getSingleCharacter(this.id!)
-      console.log(res['id'])
-      console.log('questo è res ', res)
-    })
+  initializeForm(character: Character): void {
+    this.myForm = new FormGroup({
+      nome: new FormControl(character.name),
+      location: new FormControl(character.location),
+      provenienza: new FormControl(character.origin.name),
+      genere: new FormControl(character.gender),
+      status: new FormControl(character.status),
+    });
+  }
+
+  getCharacter(): Observable<Character> {
+    return this.route.params.pipe(switchMap((urlParams) => {
+      this.id = urlParams['id'] as string;
+      return this.apiService.getSingleCharacter(this.id)
+    }))
   }
 
   saveCharacter(): void {
     const characterData = this.myForm.value;
-      this.apiService.saveCharacter(characterData).subscribe(response => {
+      this.apiService.saveCharacterMock(characterData).subscribe(response => {
         console.log('Dati salvati:', response);
         alert('Dati salvati con successo!');
       });
     }
   }
-
