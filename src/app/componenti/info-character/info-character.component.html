@@ -1,0 +1,31 @@
+<!--<p>profilo di {{(singleCharacter | async)?.name}}</p>-->
+<div *ngIf="(getCharacterAndInitializeForm() | async) as character">
+  <div class="container">
+    <div class="imgContainer">
+      <img src="character.image" alt="">
+    </div>
+  </div>
+
+  <form [formGroup]="myForm" (ngSubmit)="saveCharacter()">
+    <label for="nome">Name:</label>
+    <input type="text" id="nome" formControlName="nome">
+
+    <label for="status">Status:</label>
+    <select name="status" id="status" formControlName="status">
+      <option value="Dead">Dead</option>
+      <option value="Alive">Alive</option>
+      <option value="Unknown">Unknown</option>
+    </select>
+
+
+    <label for="status">Location:</label>
+    <input type="text" id="location" formControlName="location">
+
+    <label for="gender">Gender:</label>
+    <input type="text" id="genere" formControlName="genere">
+
+    <button type="submit">Salva</button>
+  </form>
+</div>
+
+
