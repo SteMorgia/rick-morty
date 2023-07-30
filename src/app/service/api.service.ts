@@ -47,4 +47,6 @@ export class ApiService {
   getSingleCharacter(id: string): Observable<Character> {
     return this.http.get<Character>(this.url + '/' + id)
   }
+
+  getSingleCharacter$ = (id: string):Observable<Character> => this.http.get<Character>(this.url + '/' + id);
 }
